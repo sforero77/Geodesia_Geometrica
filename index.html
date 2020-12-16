@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="codigo.js"></script>
     <link rel="stylesheet" href="estilos.css">
-    <title>HOME</title>
+    <link  rel="icon"   href="img/fnn.png" type="image/png" />
+    <title>Geodesia Geometrica</title>
 </head>
 <body>
     <div class="vertical-menu">
@@ -24,53 +25,22 @@
         <a href="puissant_inverso.html">Inverso Puissant</a>
 
     </div>
-    <div class="grande">
-        <form>
-            <h1>HOME</h1>
-            <fieldset>
-            <legend>Datos de elipsoide</legend>
-            <div class="dat_elip">
-                <p>a: <input type="number" id="aElipsoide" placeholder="a del elipsoide" value="6378137"></p> 
-                <p>b: <input type="number" id="bElipsoide" placeholder="b del elipsoide" value="6356752.3141"></p> 
-                <p>f <sup>-1</sup> : <input type="text" id="fElipsoide" placeholder="f del elipsoide" value="298.257222101"></p>
-            </div>
-            <div class="dat_elip">
-                <p id="e2"></p>     
-            </div>
-        </fieldset>
-        </form>
-    
-        <form action="#">
-            <fieldset> 
-                <legend>Coordenadas Geograficas</legend>
-                <div class="geog">Latitud(φ):
-                    <input type="number" id="lat_grados" placeholder="Grados" min="0" max="360">
-                    <input type="number" id="lat_minutos" placeholder="Minutos" min="0" max="60">
-                    <input type="number" id="lat_segundos" placeholder="Segundos" min="0" max="60">
-                    <input type="text" id="direccion" placeholder="Direccion"><br><br>
-                    <button type="button" onclick="geod()">Geodesica (φ)</button>
-                    <button type="button" onclick="redu()">Reducida (β)</button>
-                    <button type="button" onclick="geoc()">Geocentrica (ψ)</button>
-
-                </div>
-            </fieldset>  
-        </form>
-        <br>
-            <button id="gdata" type="button" onclick="boton()">Guardar Datos</button>
-    <br><br>
-            <div class="result">
-                <fieldset>
-                    <legend>Latitud</legend>
-                    <p id="latgeod"></p>
-                    <p id="latred"></p>
-                    <p id="latgeoc"></p>
-                    <legend>Coordenadas en funcion de latitud</legend>
-                <p id="ae2_y"></p>
-                <p id="ae2_z"></p>
-                <button type="button" onclick="setData()">Coordenadas y, z</button>
-            </fieldset>
-            </div>
+    <div class="grande" id="fond" >
+        <div id="ffn" >
+            <h1>Aplicación Geodesia Geometrica</h1>     
+            <br>
+            <br>
+            <h2 style="text-align: center;">Sebastian Forero Zapata</h2>
+            <br>
+            <h2 style="text-align: center;">Estudiante Ingeniería Catastral y Geodesia</h2>
             
+            
+            <img src="img/fnn.png" alt="imagen" id="gif2">
+            <br>
+            <br>
+            <br>
+            <footer>Copyright&copy; 2020 - Página creada por Sebastian Forero - Todos los derechos reservados</footer>
+        </div>  
     </div>
 </body>
 </html>
