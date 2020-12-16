@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="codigo5.js"></script>
+    <link rel="stylesheet" href="estilos.css">
+    <title>Coordenadas en seccion meridiana</title>
+</head>
+<body>
+    <div class="vertical-menu">
+        <a href="#" class="active">Home</a>
+        <a href="Coor_lat_secc_meridiana.html">Coordenadas en seccion meridiana</a>
+        <a href="Coor_Rect.html">Coordenadas Rectangulares</a>
+        <a href="Long_Arc_merid.html">Longitud de Arco Meridiano</a>
+        <a href="Radios_Curvatura.html">Radios de Curvatura</a>
+        <a href="Area_Cuadr.html">Area Cuadrilatero</a>
+        <a href="LineaGeodesica.html">Linea Geodesica</a>
+        <a href="Prob_Satelite.html">Puntos corte Satelite</a>
+        <a href="exceso_esf_triang.html">Exceso Esferico Triangulo</a>
+        <a href="exceso_esf_Cuadr.html">Exceso Esferico Cuadrilatero</a>
+        <a href="Resistencia_Cuad.html">Resistencia Cuadrilatero</a>
+        <a href="puissant_directo.html">Directo Puissant</a>
+    </div>
+    <div class="grande">
+        
+        <form>
+            <h1>PUISSANT DIRECTO</h1>
+            <fieldset >
+                <legend>Datos de elipsoide</legend>
+            <div class="dat_elip" style="width:70%">
+                <p>a: <input type="number" id="aElipsoide" placeholder="a del elipsoide" value="6378388"></p> 
+                <p>b: <input type="number" id="bElipsoide" placeholder="b del elipsoide" value="6356911.946"></p> 
+                <p>f <sup>-1</sup> : <input type="text" id="fElipsoide" placeholder="f del elipsoide" value="297"></p>
+            </div>
+            <div class="dat_elip" style="width:70%">
+                <p id="e2"></p>
+            </div>
+        </fieldset>
+        </form>
+    
+        <form action="#">
+            <fieldset> 
+                <legend>DATOS INICIALES</legend>
+                <div class="geog">Latitud<sub>A</sub>:
+                    <input type="number" id="lat_grados" placeholder="Grados" min="0" max="360" value="8">
+                    <input type="number" id="lat_minutos" placeholder="Minutos" min="0" max="60" value="37">
+                    <input type="number" id="lat_segundos" placeholder="Segundos" min="0" max="60" value="52.862">
+                    <input type="text" id="direccion" placeholder="Direccion" value="N"><br><br>
+                    Longitud<sub>A</sub>: 
+                    <input type="number" id="lon_grados" placeholder="Grados" min="0" max="360" value="75">
+                    <input type="number" id="lon_minutos" placeholder="Minutos" min="0" max="60" value="37">
+                    <input type="number" id="lon_segundos" placeholder="Segundos" min="0" max="60" value="47.891">
+                    <input type="text" id="lon_direccion" placeholder="Direccion" value="W"><br><br>
+                    Latitud<sub>B</sub>:
+                    <input type="number" id="lat_grados2" placeholder="Grados" min="0" max="360" value="8">
+                    <input type="number" id="lat_minutos2" placeholder="Minutos" min="0" max="60" value="37">
+                    <input type="number" id="lat_segundos2" placeholder="Segundos" min="0" max="60" value="52.862">
+                    <input type="text" id="direccion2" placeholder="Direccion" value="N"><br><br>
+                    Longitud<sub>B</sub>: 
+                    <input type="number" id="lon_grados2" placeholder="Grados" min="0" max="360" value="75">
+                    <input type="number" id="lon_minutos2" placeholder="Minutos" min="0" max="60" value="37">
+                    <input type="number" id="lon_segundos2" placeholder="Segundos" min="0" max="60" value="47.891">
+                    <input type="text" id="lon_direccion2" placeholder="Direccion" value="W"><br><br>
+                    <p id="gnormal"></p>
+                    <p id="radcurv"></p>
+                
+                </div>
+            </fieldset>  
+        </form>
+        <br>
+            <button id="gdata" type="button" onclick="boton()">Guardar Datos</button>
+    <br><br>
+            <div class="result">
+                <fieldset>
+                    <legend>RESULTADOS</legend>
+                <p id="const"></p>
+                <p id="del_lat"></p>
+                <p id="del_lon"></p>
+                <p id="nor"></p>
+
+                <p  id="result"></p>
+
+                <button type="button" onclick="setData()">Resultados</button>
+            </fieldset>
+            </div>
+            
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="codigo.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> 
+    
+
+    <link rel="stylesheet" href="estilos.css">
+    <title>Coordenadas en seccion meridiana</title>
+</head>
+<body>
+    
+    <div class="vertical-menu">
+        <a href="#" class="active">Home</a>
+        <a href="Coor_lat_secc_meridiana.html">Coordenadas en seccion meridiana</a>
+        <a href="Coor_Rect.html">Coordenadas Rectangulares</a>
+        <a href="Long_Arc_merid.html">Longitud de Arco Meridiano</a>
+        <a href="Radios_Curvatura.html">Radios de Curvatura</a>
+        <a href="Area_Cuadr.html">Area Cuadrilatero</a>
+        <a href="LineaGeodesica.html">Linea Geodesica</a>
+        <a href="Prob_Satelite.html">Puntos corte Satelite</a>
+        <a href="exceso_esf_triang.html">Exceso Esferico Triangulo</a>
+        <a href="exceso_esf_Cuadr.html">Exceso Esferico Cuadrilatero</a>
+        <a href="Resistencia_Cuad.html">Resistencia Cuadrilatero</a>
+        <a href="puissant_directo.html">Directo Puissant</a>
+
+    </div>
+    <div class="grande">
+        <form>
+            <h1>Problema de Satelite Puntos de corte con orbita</h1>
+            <fieldset>
+            <legend>Datos de elipsoide</legend>
+            <div class="dat_elip">
+                <p>a: <input type="number" id="aElipsoide" placeholder="a del elipsoide" value="6378137"></p> 
+                <p>b: <input type="number" id="bElipsoide" placeholder="b del elipsoide" value="6356752.3141"></p> 
+                <p>f <sup>-1</sup> : <input type="text" id="fElipsoide" placeholder="f del elipsoide" value="298.257222101"></p>
+            </div>
+            <div class="dat_elip">
+                <p id="e2"></p>     
+            </div>
+        </fieldset>
+        </form>
+    
+        <form action="#">
+            <fieldset> 
+                <legend>Datos Observador</legend>
+                <div class="geog">Latitud(φ):
+                    <input type="number" id="lat_grados" placeholder="Grados" min="0" max="360">
+                    <input type="number" id="lat_minutos" placeholder="Minutos" min="0" max="60">
+                    <input type="number" id="lat_segundos" placeholder="Segundos" min="0" max="60">
+                    <input type="text" id="direccion" placeholder="Direccion"><br><br>
+                    Radio Satelite (m):
+                    <input type="number" id="rad_sat" placeholder="Radio">
+                </div>
+            </fieldset>  
+        </form>
+        <br>
+            <button id="gdata" type="button" onclick="boton6()">Guardar Datos</button>
+    <br><br>
+            <div class="result">
+                <fieldset >
+                <div id="obj2" style="display: none;">
+                <p id="ae2_y"></p>
+                <p id="ae2_z"></p>
+                <p id="ec_N" ></p>
+                <math  xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi><mo>-</mo><mi id="z0" ></mi><mo>=</mo><mfenced><mrow><mi>tan</mi><mfenced><mi id="laob"></mi></mfenced></mrow></mfenced><mfenced><mrow><mi>y</mi><mo>-</mo><mi id="y0"></mi></mrow></mfenced></math>
+                <p id="tpv"></p>
+                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi><mo>-</mo><mi id="z0T"></mi><mo>=</mo><mfrac><mrow><mo>-</mo><mn>1</mn></mrow><mrow><mi>tan</mi><mfenced><mi id="laobT"></mi></mfenced></mrow></mfrac><mfenced><mrow><mi>y</mi><mo>-</mo><mi id="y0T"></mi></mrow></mfenced></math>
+                <p id="sat"></p>
+                <math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><mo>=</mo><msup><mi id="rsat"></mi><mn>2</mn></msup></math>
+                <p id="d_y"></p>
+                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi><mo>=</mo><mfrac><mrow><mo>-</mo><mn>1</mn></mrow><mrow><mi>tan</mi><mfenced><mi id="laobD"></mi></mfenced></mrow></mfrac><mfenced><mrow><mi>y</mi><mo>-</mo><mi id="y0D"></mi></mrow></mfenced><mo>+</mo><mi id="z0D"></mi></math>
+                <br>
+                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi><mo>=</mo><mi id="d_ty"></mi><mi>y</mi><mo>+</mo><mi id="r_m"></mi><mo>+</mo><mi id="tre"></mi></math>
+                <br>
+                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi><mo>=</mo><mi id="tt"></mi><mi>y</mi><mo>+</mo><mi id="tt_s"></mi></math>
+                <br>
+                <p id="remp"></p>
+                <math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msup><mfenced><mi><mi id="ttt"></mi><mi>y</mi><mo>+</mo><mi id="ttt_s"></mi></mi></mfenced><mn>2</mn></msup><mo>=</mo><msup><mi id="rsatt" ></mi><mn>2</mn></msup></math>
+                <br>
+                <math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><mi id="fac_a"></mi><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><mi id="fac_b"></mi><mi>y</mi><mo>+</mo><mi id="fac_c"></mi><mo>=</mo><msup><mi id="rsattt"></mi><mn>2</mn></msup></math>
+                <br>
+                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi id="fa_a"></mi><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><mi id="fa_b"></mi><mi>y</mi><mo>+</mo><mi id="fa_c"></mi><mo>=</mo><mn>0</mn></math>
+                <br>
+                <p id="cuad"></p>
+                <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>y</mi><mn>1</mn></msub><mo>=</mo><mi id="y_1"></mi></math>
+                <br>
+                <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>z</mi><mn>1</mn></msub><mo>=</mo><mi id="z_1"></mi></math>
+                <br>
+                <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>y</mi><mn>2</mn></msub><mo>=</mo><mi id="y_2"></mi></math>
+                <br>
+                <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>z</mi><mn>2</mn></msub><mo>=</mo><mi id="z_2"></mi></math>
+                <br><br>
+            </div>
+            <button  type="button" onclick="setData10()">Coordenadas y, z</button>
+            </fieldset>
+            </div>
+            
+    </div>
+</body>
+</html>

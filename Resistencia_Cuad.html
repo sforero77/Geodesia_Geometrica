@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="codigo3.js"></script>
+    <link rel="stylesheet" href="estilos.css">
+    <title>Coordenadas en seccion meridiana</title>
+</head>
+<body>
+    <div class="vertical-menu">
+        <a href="#" class="active">Home</a>
+        <a href="Coor_lat_secc_meridiana.html">Coordenadas en seccion meridiana</a>
+        <a href="Coor_Rect.html">Coordenadas Rectangulares</a>
+        <a href="Long_Arc_merid.html">Longitud de Arco Meridiano</a>
+        <a href="Radios_Curvatura.html">Radios de Curvatura</a>
+        <a href="Area_Cuadr.html">Area Cuadrilatero</a>
+        <a href="LineaGeodesica.html">Linea Geodesica</a>
+        <a href="Prob_Satelite.html">Puntos corte Satelite</a>
+        <a href="exceso_esf_triang.html">Exceso Esferico Triangulo</a>
+        <a href="exceso_esf_Cuadr.html">Exceso Esferico Cuadrilatero</a>
+        <a href="Resistencia_Cuad.html">Resistencia Cuadrilatero</a>
+        <a href="puissant_directo.html">Directo Puissant</a>
+
+    </div>
+    <div class="grande">
+        <form>
+            <h1>RESISTENCIA CUADRILATERO</h1>
+        </form>
+    
+        <form action="#">
+            <fieldset class="div2"> 
+                <legend>Datos Iniciales</legend>
+                <div class="geog">
+                    Angulo 1:
+                    <input type="number" id="1_grados" placeholder="Grados" min="0" max="360" value="38">
+                    <input type="number" id="1_minutos" placeholder="Minutos" min="0" max="60" value="15">
+                    <input type="number" id="1_segundos" placeholder="Segundos" min="0" max="60" value="22.5">
+                    <br><br>
+                    Angulo 2:
+                    <input type="number" id="2_grados" placeholder="Grados" min="0" max="360" value="40">
+                    <input type="number" id="2_minutos" placeholder="Minutos" min="0" max="60" value="34">
+                    <input type="number" id="2_segundos" placeholder="Segundos" min="0" max="60" value="13">
+                    <br><br>
+                    Angulo 3:
+                    <input type="number" id="3_grados" placeholder="Grados" min="0" max="360" value="42">
+                    <input type="number" id="3_minutos" placeholder="Minutos" min="0" max="60" value="20">
+                    <input type="number" id="3_segundos" placeholder="Segundos" min="0" max="60" value="14.5">
+                    <br><br>
+                    Angulo 4:
+                    <input type="number" id="4_grados" placeholder="Grados" min="0" max="360" value="58">
+                    <input type="number" id="4_minutos" placeholder="Minutos" min="0" max="60" value="50">
+                    <input type="number" id="4_segundos" placeholder="Segundos" min="0" max="60" value="11.5">
+                    <br><br>
+                    Angulo 5:
+                    <input type="number" id="5_grados" placeholder="Grados" min="0" max="360" value="30">
+                    <input type="number" id="5_minutos" placeholder="Minutos" min="0" max="60" value="1">
+                    <input type="number" id="5_segundos" placeholder="Segundos" min="0" max="60" value="12">
+                    <br><br>
+                    Angulo 6:
+                    <input type="number" id="6_grados" placeholder="Grados" min="0" max="360" value="48">
+                    <input type="number" id="6_minutos" placeholder="Minutos" min="0" max="60" value="48">
+                    <input type="number" id="6_segundos" placeholder="Segundos" min="0" max="60" value="23">
+                    <br><br>
+                    Angulo 7:
+                    <input type="number" id="7_grados" placeholder="Grados" min="0" max="360" value="40">
+                    <input type="number" id="7_minutos" placeholder="Minutos" min="0" max="60" value="15">
+                    <input type="number" id="7_segundos" placeholder="Segundos" min="0" max="60" value="39">
+                    <br><br>
+                    Angulo 8:
+                    <input type="number" id="8_grados" placeholder="Grados" min="0" max="360" value="60">
+                    <input type="number" id="8_minutos" placeholder="Minutos" min="0" max="60" value="54">
+                    <input type="number" id="8_segundos" placeholder="Segundos" min="0" max="60" value="46.5">
+                    <br><br>
+                    n (Número de lineas de la figura, se deben ver) =
+                    <input type="number" id="n" placeholder="Numero Lineas" value="6"><br>
+                    n' (Número de lineas observadas en ambas direcciones)=	
+                    <input type="number" id="n_p" placeholder="Numero Lineas Observadas" value="6"><br>
+                    S (Estaciones)	
+                    <input type="number" id="s" placeholder="Numero Lineas Observadas" value="4" ><br>
+                    S' (Estaciones Ocupadas)	
+                    <input type="number" id="s_p" placeholder="Numero Lineas Observadas" value="4"><br>
+                    <p id="d"> </p> 		
+                    <p id="c"> </p>
+                </div>
+                <div id="imag">
+                    <img id="cuad" src="img/cuadrilatero-02.svg" alt="">
+                </div>
+            </fieldset>  
+        </form>
+        <br>
+            <button id="gdata" type="button" onclick="boton1()">Guardar Datos</button>
+    <br><br>
+            <div class="result">
+                <fieldset>
+                    <legend>Resultados</legend>
+                    <h2>Camino 1  </h2>
+                    <img id="camino1" src="img/camino1-02.svg" alt="">
+                    <p id="c_1"></p>
+                    <h2>Camino 2 </h2>
+                    <img id="camino2" src="img/camino2-02.svg" alt="">
+                    <p id="c_2"></p>
+                    <h2>Camino 3 </h2>
+                    <img id="camino3" src="img/camino3-02.svg" alt="">
+                    <p id="c_3"></p>
+                    <h2>Camino 4 </h2>
+                    <img id="camino4" src="img/camino4-02.svg" alt="">
+                    <p id="c_4"></p>
+                <button type="button" onclick="setData()">Calcular</button>
+            </fieldset>
+            </div>
+            
+    </div>
+</body>
+</html>

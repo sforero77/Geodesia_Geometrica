@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="codigo.js"></script>
+    <link rel="stylesheet" href="estilos.css">
+    <title>Coordenadas en seccion meridiana</title>
+</head>
+<body>
+    <div class="vertical-menu">
+        <a href="#" class="active">Home</a>
+        <a href="Coor_lat_secc_meridiana.html">Coordenadas en seccion meridiana</a>
+        <a href="Coor_Rect.html">Coordenadas Rectangulares</a>
+        <a href="Long_Arc_merid.html">Longitud de Arco Meridiano</a>
+        <a href="Radios_Curvatura.html">Radios de Curvatura</a>
+        <a href="Area_Cuadr.html">Area Cuadrilatero</a>
+        <a href="LineaGeodesica.html">Linea Geodesica</a>
+        <a href="Prob_Satelite.html">Puntos corte Satelite</a>
+        <a href="exceso_esf_triang.html">Exceso Esferico Triangulo</a>
+        <a href="exceso_esf_Cuadr.html">Exceso Esferico Cuadrilatero</a>
+        <a href="Resistencia_Cuad.html">Resistencia Cuadrilatero</a>
+        <a href="puissant_directo.html">Directo Puissant</a>
+    </div>
+    <div class="grande">
+        
+        <form>
+            <h1>COORDENADAS RECTANGULARES</h1>
+            <fieldset>
+            <legend>Datos de elipsoide</legend>
+            <div class="dat_elip">
+                <p>a: <input type="number" id="aElipsoide" placeholder="a del elipsoide" value="6378137"></p> 
+                <p>b: <input type="number" id="bElipsoide" placeholder="b del elipsoide" value="6356752.3141"></p> 
+                <p>f <sup>-1</sup> : <input type="text" id="fElipsoide" placeholder="f del elipsoide" value="298.257222101"></p>
+            </div>
+            <div class="dat_elip">
+                <p id="e2"></p>     
+            </div>
+        </fieldset>
+        </form>
+    
+        <form action="#">
+            <fieldset> 
+                <legend>Coordenadas Geograficas</legend>
+                <div class="geog">Latitud(φ):
+                    <input type="number" id="lat_grados" placeholder="Grados" min="0" max="360">
+                    <input type="number" id="lat_minutos" placeholder="Minutos" min="0" max="60">
+                    <input type="number" id="lat_segundos" placeholder="Segundos" min="0" max="60">
+                    <input type="text" id="direccion" placeholder="Direccion"><br><br>
+                    Longitud(λ):
+                    <input type="number" id="lon_grados" placeholder="Grados" min="0" max="360">
+                    <input type="number" id="lon_minutos" placeholder="Minutos" min="0" max="60">
+                    <input type="number" id="lon_segundos" placeholder="Segundos" min="0" max="60">
+                    <input type="text" id="lon_direccion" placeholder="Direccion">
+                    <br><br> Altura(h):
+                    <input type="number" id="altura" placeholder="Altura" value="0">
+                    <br><br><button type="button" onclick="geod()">Geodesica (φ)</button>
+                    <button type="button" onclick="redu()">Reducida (β)</button>
+                    <button type="button" onclick="geoc()">Geocentrica (ψ)</button>
+
+                </div>
+            </fieldset>  
+        </form>
+        <br>
+            <button id="gdata" type="button" onclick="boton2()">Guardar Datos</button>
+    <br><br>
+            <div class="result">
+                <fieldset>
+                    <legend>Latitud</legend>
+                    <p id="latgeod"></p>
+                    <p id="latred"></p>
+                    <p id="latgeoc"></p>
+                    <legend>Coordenadas Rectangulares</legend>
+                <p id="x"></p>
+                <p id="y"></p>
+                <p id="z"></p>
+                <button type="button" onclick="setData5()">Coordenadas x,y,z</button>
+            </fieldset>
+            </div>
+            
+    </div>
+</body>
+</html>

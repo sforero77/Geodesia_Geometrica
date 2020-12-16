@@ -1,0 +1,248 @@
+body {
+    display: flex;
+    
+}
+.vertical-menu {
+    width: 200px; /* Set a width if you like */
+    margin-left: auto;
+}
+.vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    }
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+    }
+
+.vertical-menu a.active {
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+    }
+.grande {
+    border: none;
+    border-radius: 5px;
+    padding: 2%;
+    width: auto;
+    height: auto;
+    
+    margin-right: auto;
+    background-color:rgb(179, 179, 179);
+    margin-top: auto;
+}
+@media (max-width: 500px){
+    .grande{
+        width: 90%;
+    }
+}
+#camino1 {
+    max-width: auto;
+    height: 200px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#camino2 {
+    max-width: auto;
+    height: 200px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#cuad {
+
+    max-width: auto;
+    height: 300px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#camino3 {
+    max-width: auto;
+    height: 200px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#camino4 {
+    max-width: auto;
+    height: 200px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#imag {
+    width: 40%;
+    display: flex;
+    
+}
+#tesferic {
+    padding: 10px;
+    max-width: auto;
+    height: 130px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#trian {
+    padding: 1px;
+    max-width: 150px;
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+}
+.div2{
+    display: flex;
+}
+.grande button {
+background:    #6fa8dc;
+border-radius: 5px;
+border-style: none;
+padding:       6px 30px;
+color:         #ffffff;
+display:       inline-block;
+font:          normal bold  "Open Sans", sans-serif;
+text-align:    center;
+}
+.grande fieldset {
+    background-color:#d6d6d6;
+    border-style: none;
+    border-radius: 5px;
+    padding-top: 20px;
+}
+
+.grande h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    text-align: center;
+    margin: 10px 0px -15px;
+}
+h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+}
+.grande fieldset legend{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-top: 60px;
+    font-style: normal;
+    text-align: left;
+    font-size: 25px;
+    font-weight: bold;
+
+    
+}
+
+.dat_elip {
+    padding-top: px;
+    width: 45%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+.geog {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    
+}
+.dat_elip input{
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px; 
+    border: 1px solid #848484; 
+    outline:0; 
+    height:20px; 
+    width: 150px; 
+    
+}
+.geog input { 
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px; 
+    border: 1px solid #848484; 
+    outline:0; 
+    height:20px; 
+    width: 75px; 
+}
+.result {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+#gdata {
+    float: right;
+}
+#contenedor {
+    margin: 2px ;
+    width: 740px;  /* Ancho del contenedor */
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
+#contenedor input {
+height: 32px;
+visibility: hidden;
+}
+.btn1 {
+    border-radius: 5px; 
+    border: 1px solid #848484; 
+    outline:0; 
+    height: 20px !important;
+    width: 100px;
+    visibility: visible !important; 
+}
+
+#contenedor label {
+float: left;
+cursor: pointer;
+font-size: 15px;  /* Tamaño del texto de las pestañas */
+line-height: 40px;
+height: 40px;
+padding: 0 20px;
+display: block;
+color: rgb(0, 0, 0);  /* Color del texto de las pestañas */
+text-align: center;
+border-radius: 5px 5px 0 0;
+background: #eee;  /* Fondo de las pestañas */
+margin-right: 5px;
+}
+
+#contenedor input:hover + label {
+background: rgb(140, 178, 196);  /* Fondo de las pestañas al pasar el cursor por encima */
+color: rgb(102, 102, 102);  /* Color del texto de las pestañas al pasar el cursor por encima */
+}
+
+#contenedor input:checked + label {
+background: #6fa8dc;  /* Fondo de las pestañas al presionar */
+color: #444; /* Color de las pestañas al presionar */
+z-index: 6;
+line-height: 45px;
+height: 45px;
+position: relative;
+top: -5px;
+-webkit-transition: .1s;
+-moz-transition: .1s;
+-o-transition: .1s;
+-ms-transition: .1s;
+}
+
+.content {
+background: #d6d6d6;  /* Fondo del contenido */
+position: relative;
+width: auto;
+height: 200px;  /* Alto del contenido */
+padding: 30px;
+z-index: 5;
+border-radius: 0 5px 5px 5px;
+}
+
+.content div {
+position: absolute;
+z-index: -100;
+opacity: 0;
+transition: all linear 0.1s;
+}
+
+#contenedor input.tab-selector-1:checked ~ .content .content-1,
+#contenedor input.tab-selector-2:checked ~ .content .content-2,
+#contenedor input.tab-selector-3:checked ~ .content .content-3,
+#contenedor input.tab-selector-4:checked ~ .content .content-4 {
+    z-index: 100;
+    opacity: 1;
+    -webkit-transition: all ease-out 0.2s 0.1s;
+-moz-transition: all ease-out 0.2s 0.1s;
+-o-transition: all ease-out 0.2s 0.1s;
+-ms-transition: all ease-out 0.2s 0.1s;
+}

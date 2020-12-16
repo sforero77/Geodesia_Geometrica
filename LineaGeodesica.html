@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <script type="text/javascript" src="codigo.js"></script>
+    <title>Radios Cruvatura</title>
+</head>
+<body>
+    <body>
+        <div class="vertical-menu">
+            <a href="#" class="active">Home</a>
+            <a href="Coor_lat_secc_meridiana.html">Coordenadas en seccion meridiana</a>
+            <a href="Coor_Rect.html">Coordenadas Rectangulares</a>
+            <a href="Long_Arc_merid.html">Longitud de Arco Meridiano</a>
+            <a href="Radios_Curvatura.html">Radios de Curvatura</a>
+            <a href="Area_Cuadr.html">Area Cuadrilatero</a>
+            <a href="LineaGeodesica.html">Linea Geodesica</a>
+            <a href="Prob_Satelite.html">Puntos corte Satelite</a>
+            <a href="exceso_esf_triang.html">Exceso Esferico Triangulo</a>
+            <a href="exceso_esf_Cuadr.html">Exceso Esferico Cuadrilatero</a>
+            <a href="Resistencia_Cuad.html">Resistencia Cuadrilatero</a>
+            <a href="puissant_directo.html">Directo Puissant</a>
+
+        </div>
+        <div class="grande">
+            <h1>Linea Geodesica</h1>
+        <form >
+            <fieldset>
+            <legend>Datos de elipside</legend>
+            <div class="dat_elip">
+                <p>a: <input type="number" id="aElipsoide" placeholder="a del elipsoide" value="6378137"></p> 
+                <p>b: <input type="number" id="bElipsoide" placeholder="b del elipsoide" value="6356752.3141"></p> 
+                <p>f <sup>-1</sup> : <input type="text" id="fElipsoide" placeholder="f del elipsoide" value="298.257222101"></p>
+            </div>
+            <div class="dat_elip">
+                <p id="e2"></p>     
+            </div>
+        </fieldset>
+        </form>
+    
+        <form action="#">
+            <fieldset> 
+                <legend>Datos Iniciales</legend>
+                <div class="geog">Latitud: 
+                    <input type="number" id="lat_grados" placeholder="Grados" min="0" max="360">
+                    <input type="number" id="lat_minutos" placeholder="Minutos" min="0" max="60">
+                    <input type="number" id="lat_segundos" placeholder="Segundos" min="0" max="60">
+                    <input type="text" id="direccion" placeholder="Direccion"><br><br>
+                    Azimut: 
+                    <input type="number" id="lat2_grados" placeholder="Grados" min="0" max="360">
+                    <input type="number" id="lat2_minutos" placeholder="Minutos" min="0" max="60">
+                    <input type="number" id="lat2_segundos" placeholder="Segundos" min="0" max="60">
+                    <input type="text" id="lat2_direccion" placeholder="Direccion">
+                </div>
+            </fieldset>
+        </form>
+            <br>
+            <button id="gdata" type="button" onclick="boton5()">Guardar Datos</button>
+    
+            <h2>Resultados</h2>
+
+            <div id="contenedor">
+                <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
+                <label for="tab-1" class="tab-label-1">Latitud </label>
+                
+                <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
+                <label for="tab-2" class="tab-label-2">Azimut </label>
+
+                <div class="content">
+                    <div class="content-1">
+                        Azimut: 
+                            <input class="btn1" type="number" id="az_grados" placeholder="Grados" min="0" max="360">
+                            <input class="btn1" type="number" id="az_minutos" placeholder="Minutos" min="0" max="60">
+                            <input class="btn1" type="number" id="az_segundos" placeholder="Segundos" min="0" max="60">
+                        <br>
+                        <p id="geodlat"></p>
+                        <br><button type="button" onclick="setData8()">Calcular</button>
+                        
+                    </div>
+                    <div class="content-2">
+                        Latitud: 
+                            <input class="btn1" type="number" id="la_grados" placeholder="Grados" min="0" max="360">
+                            <input class="btn1" type="number" id="la_minutos" placeholder="Minutos" min="0" max="60">
+                            <input class="btn1" type="number" id="la_segundos" placeholder="Segundos" min="0" max="60">
+                            <input class="btn1" type="text" id="la_direccion" placeholder="Direccion">
+                            <br>
+                        <p id="geodazim"></p>
+                        <br><button type="button" onclick="setData9()">Calcular</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
