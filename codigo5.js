@@ -56,70 +56,79 @@ function radmeridiana(a,e2,lat){
 return m;
 }
 //constantes
-function constpuis(){
-    az1=az+180;
-    if (az1>360) {
-        az1=az1-360;
-    }
-    azrad=az1*(Math.PI/180);
+function constpuis(n,m,lat){
     latRad=lat*(Math.PI/180);
-azrad1=az*(Math.PI/180);
     const_b=1/(m*0.00000484813681109536);
     const_c=Math.tan(latRad)/(2*m*n*0.00000484813681109536);
     const_d=(3*e2Elipsoide*Math.sin(latRad)*Math.cos(latRad)*0.00000484813681109536)/(2*(1-e2Elipsoide*Math.sin(latRad)*Math.sin(latRad)));
     const_e=(1+3*Math.tan(latRad)*Math.tan(latRad))/(6*n*n);
-    const_h=(dist*Math.cos(azrad1))/(m)
-}
-//partes ecuacion
-function partec(){
-    d1=((dist*Math.cos(azrad1))/(m*0.00000484813681109536));
-    d2=((dist*dist*Math.sin(azrad1)*Math.sin(azrad1)*Math.tan(latRad))/(2*m*n*0.00000484813681109536));
-    d3=((dist*dist*dist*Math.sin(azrad1)*Math.sin(azrad1)*Math.cos(azrad1)*(1+(3*Math.tan(latRad)*Math.tan(latRad))))/(6*n*n*m*0.00000484813681109536));
-    delat1=d1-d2-d3;
     
-    p1=const_b*dist*Math.cos(azrad1);
-    p2=const_c*dist*dist*Math.sin(azrad1)*Math.sin(azrad1);
-    p3=const_h*dist*dist*Math.sin(azrad1)*Math.sin(azrad1)*const_e;
-    p4=Math.pow(delat1,2)*const_d;
-    del_lat= p1-p2-p3-p4;
 }
-//calculo long2
-function calc2() {
-    lat2=lat+(del_lat/3600);
-    lat2rad=lat2*(Math.PI/180);
-    n2=radnormal(aElipsoide,e2Elipsoide,lat2);
-    del_lon=(Math.asin((Math.sin(dist/n2)*Math.sin(azrad1))/(Math.cos(lat2rad))))*(180*3600/Math.PI);
-}
-//contraazimut
-function contaz() {
+//deltas
+function deltas() {
+    del_lat=(lat2-lat)*3600;
+    console.log(del_lat);
+    del_lon=(lon2-lon)*3600;
+    console.log(del_lon);
+    del_lon_rad=del_lon*(Math.PI/180);
+    lat2_Rad=lat2*(Math.PI/180);
+    xcalc=n2*Math.sin(del_lon_rad/3600)*Math.cos(lat2_Rad);
+    console.log(xcalc);
+    ycalc=(-del_lat-(const_c*xcalc*xcalc)-(const_d*del_lat*del_lat))/(const_b*(1-(const_e*xcalc*xcalc)));
+    console.log(ycalc);
+    etr=((xcalc)/(ycalc));
+    alpha=Math.atan(etr)*(180/Math.PI);
+    console.log(alpha);
+
     latpromrad=((lat+lat2)/2)*(Math.PI/180);
     del_latrad=del_lat*(Math.PI/180);
     del_az=(del_lon/3600)*Math.sin(latpromrad)*(1/Math.cos(del_latrad/7200))+((Math.pow((del_lon/3600),3)/12))*(Math.sin(latpromrad)*Math.cos(latpromrad)*Math.cos(latpromrad)*0.00000484813681109536*0.00000484813681109536);
+    
+    del_alpha=(del_lon/3600)*(Math.sin((((lat2+lat)/2)*(Math.PI/180)))*(1/Math.cos(((del_lat/7200)*(Math.PI/180)))));
+    console.log(del_az);
 }
-//Resultados
-function resul() {
-    lon2=lon+(del_lon/3600);
-    az2=az1+del_az;
+//resultados
+function result() {
+    if((del_lon)<0 && del_lat>0){
+        re=360-alpha;
+    }else if ((del_lon)<0 && del_lat<0) {
+        re=alpha+180;
+    }else if ((del_lon)>0 && del_lat<0 ) {
+        re=180-alpha;
+    }else if ((del_lon)>0 && del_lat>0 ) {
+        re=-alpha;//revisar
+    }
+    console.log(re);
+
+    if ((re+del_az+180)>=360) {
+        re2=re+del_az+180-360;
+    }else{
+        re2=re+del_az+180;
+    }
+    console.log(re2);
+    dist=xcalc/Math.sin((re*(Math.PI/180)));
+    console.log(dist);
 }
 //BOTON
 function boton(){
     getDataElipsoide();
     get_dat();
-    document.getElementById("gnormal").innerHTML="Gran Normal(N)= " + radnormal(aElipsoide,e2Elipsoide,lat);
-    document.getElementById("radcurv").innerHTML="Radio de curvatura(ρ)= " + radmeridiana(aElipsoide,e2Elipsoide,lat);
+    n1=radnormal(aElipsoide,e2Elipsoide,lat);
+    m1=radmeridiana(aElipsoide,e2Elipsoide,lat);
+    n2=radnormal(aElipsoide,e2Elipsoide,lat2);
+    m2=radmeridiana(aElipsoide,e2Elipsoide,lat2);
+    document.getElementById("gnormal").innerHTML="Gran Normal(N<sub>A</sub>)= " +n1 ;
+    document.getElementById("radcurv").innerHTML="Radio de curvatura(ρ<sub>A</sub>)= " +m1 ;
+    document.getElementById("gnormal2").innerHTML="Gran Normal(N<sub>B</sub>)= " + n2;
+    document.getElementById("radcurv2").innerHTML="Radio de curvatura(ρ<sub>B</sub>)= " +m2 ;
 }
 //MOOSTRAR DATOS
 function setData(){
-    constpuis();
-    document.getElementById("const").innerHTML="B= "+const_b+"<br>C= "+const_c+"<br>D= "+const_d+"<br>E= "+const_e+"<br>h= "+const_h;
-    partec();
-    document.getElementById("del_lat").innerHTML="δ<sub>φ</sub>= "+delat1+"<br>Δ<sub>φ</sub>= "+del_lat;
-    calc2();
-    document.getElementById("nor").innerHTML="N<sub>2</sub>= "+n2;
-    contaz();
-    document.getElementById("del_lon").innerHTML="Δ<sub>λ</sub>= "+del_lon+"<br>Δ<sub>α</sub>= "+del_az;
-    resul();
-    document.getElementById("result").innerHTML="φ<sub>2</sub>= "+ConvertDDtoGMS(lat2)+"<br>λ<sub>2</sub>= "+ConvertDDtoGMS(lon2)+"<br>α<sub>2</sub>= "+ConvertDDtoGMS(az2);
-    
+    constpuis(n1,m1,lat);
+    document.getElementById("const").innerHTML="B= "+const_b+"<br>C= "+const_c+"<br>D= "+const_d+"<br>E= "+const_e;
+    deltas();
+    document.getElementById("delt").innerHTML="<br>Δ<sub>φ<sup>''</sup></sub>= "+del_lat+"<br>Δ<sub>λ<sup>''</sup></sub>= "+del_lon+"<br>X= "+ xcalc+"<br>Y= "+ycalc+"<br>α= "+alpha+"<br>Δα= "+del_az;
+    result();
+    document.getElementById("resul").innerHTML="<br>α(A-B) Norte = "+ConvertDDtoGMS(re)+"<br>α(B-A) Norte = "+ConvertDDtoGMS(re2)+"<br>s(AB) metros = "+dist;
 
 }

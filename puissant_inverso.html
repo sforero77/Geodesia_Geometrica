@@ -25,7 +25,7 @@
     <div class="grande">
         
         <form>
-            <h1>PUISSANT DIRECTO</h1>
+            <h1>PUISSANT INVERSO</h1>
             <fieldset >
                 <legend>Datos de elipsoide</legend>
             <div class="dat_elip" style="width:70%">
@@ -43,27 +43,29 @@
             <fieldset> 
                 <legend>DATOS INICIALES</legend>
                 <div class="geog">Latitud<sub>A</sub>:
-                    <input type="number" id="lat_grados" placeholder="Grados" min="0" max="360" value="8">
-                    <input type="number" id="lat_minutos" placeholder="Minutos" min="0" max="60" value="37">
-                    <input type="number" id="lat_segundos" placeholder="Segundos" min="0" max="60" value="52.862">
+                    <input type="number" id="lat_grados" placeholder="Grados" min="0" max="360" value="1">
+                    <input type="number" id="lat_minutos" placeholder="Minutos" min="0" max="60" value="14">
+                    <input type="number" id="lat_segundos" placeholder="Segundos" min="0" max="60" value="9.701">
                     <input type="text" id="direccion" placeholder="Direccion" value="N"><br><br>
                     Longitud<sub>A</sub>: 
-                    <input type="number" id="lon_grados" placeholder="Grados" min="0" max="360" value="75">
-                    <input type="number" id="lon_minutos" placeholder="Minutos" min="0" max="60" value="37">
-                    <input type="number" id="lon_segundos" placeholder="Segundos" min="0" max="60" value="47.891">
+                    <input type="number" id="lon_grados" placeholder="Grados" min="0" max="360" value="77">
+                    <input type="number" id="lon_minutos" placeholder="Minutos" min="0" max="60" value="8">
+                    <input type="number" id="lon_segundos" placeholder="Segundos" min="0" max="60" value="21.35">
                     <input type="text" id="lon_direccion" placeholder="Direccion" value="W"><br><br>
                     Latitud<sub>B</sub>:
-                    <input type="number" id="lat_grados2" placeholder="Grados" min="0" max="360" value="8">
-                    <input type="number" id="lat_minutos2" placeholder="Minutos" min="0" max="60" value="37">
-                    <input type="number" id="lat_segundos2" placeholder="Segundos" min="0" max="60" value="52.862">
+                    <input type="number" id="lat_grados2" placeholder="Grados" min="0" max="360" value="1">
+                    <input type="number" id="lat_minutos2" placeholder="Minutos" min="0" max="60" value="33">
+                    <input type="number" id="lat_segundos2" placeholder="Segundos" min="0" max="60" value="23.817">
                     <input type="text" id="direccion2" placeholder="Direccion" value="N"><br><br>
                     Longitud<sub>B</sub>: 
-                    <input type="number" id="lon_grados2" placeholder="Grados" min="0" max="360" value="75">
-                    <input type="number" id="lon_minutos2" placeholder="Minutos" min="0" max="60" value="37">
-                    <input type="number" id="lon_segundos2" placeholder="Segundos" min="0" max="60" value="47.891">
-                    <input type="text" id="lon_direccion2" placeholder="Direccion" value="W"><br><br>
+                    <input type="number" id="lon_grados2" placeholder="Grados" min="0" max="360" value="77">
+                    <input type="number" id="lon_minutos2" placeholder="Minutos" min="0" max="60" value="4">
+                    <input type="number" id="lon_segundos2" placeholder="Segundos" min="0" max="60" value="0.899">
+                    <input type="text" id="lon_direccion2" placeholder="Direccion" value="E"><br><br>
                     <p id="gnormal"></p>
                     <p id="radcurv"></p>
+                    <p id="gnormal2"></p>
+                    <p id="radcurv2"></p>
                 
                 </div>
             </fieldset>  
@@ -75,11 +77,8 @@
                 <fieldset>
                     <legend>RESULTADOS</legend>
                 <p id="const"></p>
-                <p id="del_lat"></p>
-                <p id="del_lon"></p>
-                <p id="nor"></p>
-
-                <p  id="result"></p>
+                <p id="delt"></p>
+                <p id="resul"></p>
 
                 <button type="button" onclick="setData()">Resultados</button>
             </fieldset>
