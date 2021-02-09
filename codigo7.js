@@ -1,3 +1,16 @@
+//Seleccionar elipsoide
+function selec_elip() {
+    opc=document.getElementById("elip_ref").value;
+    if (opc=="wgs84") {
+        document.getElementById("aElipsoide").value="6378137";
+        document.getElementById("bElipsoide").value="6356752.3141";
+        document.getElementById("fElipsoide").value="298.257222101";
+    }else if (opc=="internacional") {
+        document.getElementById("aElipsoide").value="6378388";
+        document.getElementById("bElipsoide").value="6356911.946";
+        document.getElementById("fElipsoide").value="297";
+    }
+}
 //guardar datos elipsoide
 function getDataElipsoide() {
     aElipsoide =parseFloat(document.getElementById("aElipsoide").value);

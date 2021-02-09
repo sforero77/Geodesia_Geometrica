@@ -26,6 +26,7 @@
         <a href="puissant_inverso.html">Inverso Puissant</a>
         <a href="Nivelacion_Reciproca.html">Nivelacion Reciproca</a>
         <a href="Nivelacion_NoReciproca.html">Nivelacion No Reciproca</a>
+        <a href="Coor_Tri.html">Coordenadas Tridimencionales</a>
     </div>
     <div class="grande">
         <form>
@@ -33,9 +34,15 @@
             <fieldset > 
             <legend>Datos de elipsoide</legend>
             <div class="dat_elip">
+                <label> Elipsoide de referencia
+                    <select id="elip_ref" onchange="selec_elip()">
+                        <option value="wgs84" selected>WGS84</option>
+                        <option value="internacional">INTERNACIONAL</option>
+                    </select>
+                </label>
                 <p>a: <input type="number" id="aElipsoide" placeholder="a del elipsoide" value="6378137"></p> 
                 <p>b: <input type="number" id="bElipsoide" placeholder="b del elipsoide" value="6356752.3141"></p> 
-                <p>f <sup>-1</sup> : <input type="text" id="fElipsoide" placeholder="f del elipsoide" value="298.257222101"></p>
+                <p>f <sup>-1</sup> : <input type="number" id="fElipsoide" placeholder="f del elipsoide" value="298.257222101"></p>
             </div>
             <div class="dat_elip">
                 <p id="e2"></p>     

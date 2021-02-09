@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="codigo5.js"></script>
+    <script type="text/javascript" src="codigo8.js"></script>
     <link rel="stylesheet" href="estilos.css">
     <link  rel="icon"   href="img/fnn.png" type="image/png" />
 
-    <title>PUISSANT INVERSO</title>
+    <title>Coordenadas Tridimencionales</title>
 </head>
 <body>
     <div class="vertical-menu">
@@ -32,7 +32,7 @@
     <div class="grande">
         
         <form>
-            <h1>PUISSANT INVERSO</h1>
+            <h1>COORDENADAS TRIDIMENCIONALES</h1>
             <fieldset >
                 <legend>Datos de elipsoide</legend>
             <div class="dat_elip" style="width:70%">
@@ -42,6 +42,9 @@
                         <option value="internacional">INTERNACIONAL</option>
                     </select>
                 </label>
+
+                
+
                 <p>a: <input type="number" id="aElipsoide" placeholder="a del elipsoide" value="6378137"></p> 
                 <p>b: <input type="number" id="bElipsoide" placeholder="b del elipsoide" value="6356752.3141"></p> 
                 <p>f <sup>-1</sup> : <input type="number" id="fElipsoide" placeholder="f del elipsoide" value="298.257222101"></p>
@@ -55,30 +58,20 @@
         <form action="#">
             <fieldset> 
                 <legend>DATOS INICIALES</legend>
-                <div class="geog">Latitud<sub>A</sub>:
-                    <input type="number" id="lat_grados" placeholder="Grados" min="0" max="360" value="1">
-                    <input type="number" id="lat_minutos" placeholder="Minutos" min="0" max="60" value="14">
-                    <input type="number" id="lat_segundos" placeholder="Segundos" min="0" max="60" value="9.701">
-                    <input type="text" id="direccion" placeholder="Direccion" value="N"><br><br>
-                    Longitud<sub>A</sub>: 
-                    <input type="number" id="lon_grados" placeholder="Grados" min="0" max="360" value="77">
-                    <input type="number" id="lon_minutos" placeholder="Minutos" min="0" max="60" value="8">
-                    <input type="number" id="lon_segundos" placeholder="Segundos" min="0" max="60" value="21.35">
-                    <input type="text" id="lon_direccion" placeholder="Direccion" value="W"><br><br>
-                    Latitud<sub>B</sub>:
-                    <input type="number" id="lat_grados2" placeholder="Grados" min="0" max="360" value="1">
-                    <input type="number" id="lat_minutos2" placeholder="Minutos" min="0" max="60" value="33">
-                    <input type="number" id="lat_segundos2" placeholder="Segundos" min="0" max="60" value="23.817">
-                    <input type="text" id="direccion2" placeholder="Direccion" value="N"><br><br>
-                    Longitud<sub>B</sub>: 
-                    <input type="number" id="lon_grados2" placeholder="Grados" min="0" max="360" value="77">
-                    <input type="number" id="lon_minutos2" placeholder="Minutos" min="0" max="60" value="4">
-                    <input type="number" id="lon_segundos2" placeholder="Segundos" min="0" max="60" value="0.899">
-                    <input type="text" id="lon_direccion2" placeholder="Direccion" value="E"><br><br>
-                    <p id="gnormal"></p>
-                    <p id="radcurv"></p>
-                    <p id="gnormal2"></p>
-                    <p id="radcurv2"></p>
+                <div class="geog">X:
+                    <input type="number" id="x" placeholder="X" style="width: auto;" value="1716974.569">
+                    
+                    <br><br>
+                    
+                    Y: 
+                    <input type="number" id="y" placeholder="Y"  style="width: auto;" value="-6087932.604">
+                    <br><br>
+                    Z:
+                    <input type="number" id="z" placeholder="Z" style="width: auto;"  value="827183.722">
+                    <br><br>
+
+                    
+
                 
                 </div>
             </fieldset>  
@@ -89,9 +82,10 @@
             <div class="result">
                 <fieldset>
                     <legend>RESULTADOS</legend>
-                <p id="const"></p>
-                <p id="delt"></p>
+                <p id="corr"></p>
+                <p id="term"></p>
                 <p id="resul"></p>
+                <p id="resul2"></p>
 
                 <button type="button" onclick="setData()">Resultados</button>
             </fieldset>
