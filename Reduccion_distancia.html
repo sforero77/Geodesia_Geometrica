@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="codigo11.js"></script>
+    <script type="text/javascript" src="codigo13.js"></script>
     <link rel="stylesheet" href="estilos.css">
     <link  rel="icon"   href="img/fnn.png" type="image/png" />
 
-    <title>Transformacion entre Datums</title>
+    <title>Reduccion de distancias</title>
 </head>
 <body>
     <div class="vertical-menu">
@@ -37,7 +37,7 @@
     <div class="grande">
         
         <form>
-            <h1>Transformacion entre Datums</h1>
+            <h1>Reduccion de distancias medidas</h1>
             <fieldset >
                 <legend>Datos de elipsoide</legend>
             <div class="dat_elip" style="width:70%">
@@ -60,37 +60,37 @@
         <form action="#">
             <fieldset> 
                 <legend>DATOS INICIALES</legend>
-                
-                <div class="geog"><br> φ<sub>o</sub>:
-                    <input type="number" id="lat_grados" placeholder="Grados" min="0" max="360" value="6">
-                    <input type="number" id="lat_minutos" placeholder="Minutos" min="0" max="60" value="0">
-                    <input type="number" id="lat_segundos" placeholder="Segundos" min="0" max="60" value="0">
-                    <input type="text" id="direccion" placeholder="Direccion" value="N"><br><br>
-                    λ<sub>o</sub>: 
-                    <input type="number" id="lon_grados" placeholder="Grados" min="0" max="360" value="73">
-                    <input type="number" id="lon_minutos" placeholder="Minutos" min="0" max="60" value="0">
-                    <input type="number" id="lon_segundos" placeholder="Segundos" min="0" max="60" value="0">
-                    <input type="text" id="lon_direccion" placeholder="Direccion" value="W"><br><br>
-                    Altura: 
-                    <input type="number" id="altura" placeholder="Pp" value="3000" style="width: auto;"><br><br>
-                    <h2>Parametros</h2>
-                    Δ<sub>x</sub>: 
-                    <input type="number" id="dx" placeholder="ΔX" value="963.273"style="width: auto;"><br><br>
-                    Δ<sub>y</sub>: 
-                    <input type="number" id="dy" placeholder="ΔY" value="486.386"style="width: auto;"><br><br>
-                    Δ<sub>z</sub>: 
-                    <input type="number" id="dz" placeholder="ΔZ" value="190.997"style="width: auto;"><br><br>
-                    R<sub>x</sub>: 
-                    <input type="number" id="rx" placeholder="Rx" value="-0.00007992171"style="width: auto;"><br><br>
-                    R<sub>y</sub>: 
-                    <input type="number" id="ry" placeholder="Ry" value="-0.000008090696"style="width: auto;"><br><br>
-                    R<sub>z</sub>: 
-                    <input type="number" id="rz" placeholder="Rz" value="0.0001051699"style="width: auto;"><br><br>
-                    Δ<sub>L</sub>: 
-                    <input type="number" id="dl" placeholder="Δl" value="-0.00001389914"style="width: auto;"><br><br>
-
+                <div class="geog"> φ<sub>A</sub>:
                     
-                                    
+                    <input type="number" id="lat_grados" placeholder="Grados" min="0" max="360" value="2">
+                    <input type="number" id="lat_minutos" placeholder="Minutos" min="0" max="60" value="51">
+                    <input type="number" id="lat_segundos" placeholder="Segundos" min="0" max="60" value="8.923">
+                    <input type="text" id="direccion" placeholder="Direccion" value="N"><br><br>
+                    h<sub>A</sub>: 
+                    <input type="number" id="ha" placeholder="Altura A"  value="3194.9">
+                    <br><br>
+                    α<sub>AB</sub>: 
+                    <input type="number" id="az_grados" placeholder="Grados" min="0" max="360" value="17">
+                    <input type="number" id="az_minutos" placeholder="Minutos" min="0" max="60" value="47">
+                    <input type="number" id="az_segundos" placeholder="Segundos" min="0" max="60" value="9">
+                    <br><br>
+                    
+                    
+                    φ<sub>B</sub>:
+                    <input type="number" id="lat_grados2" placeholder="Grados" min="0" max="360" value="3">
+                    <input type="number" id="lat_minutos2" placeholder="Minutos" min="0" max="60" value="1">
+                    <input type="number" id="lat_segundos2" placeholder="Segundos" min="0" max="60" value="7.936">
+                    <input type="text" id="direccion2" placeholder="Direccion" value="N"><br><br>
+                    h<sub>B</sub>: 
+                    <input type="number" id="hb" placeholder="Altura B"  value="2686.70">
+                    <br><br>
+                    α<sub>BA</sub>: 
+                    <input type="number" id="az_grados2" placeholder="Grados" min="0" max="360" value="197">
+                    <input type="number" id="az_minutos2" placeholder="Minutos" min="0" max="60" value="47">
+                    <input type="number" id="az_segundos2" placeholder="Segundos" min="0" max="60" value="18.79">                
+                    <br><br>S:
+                    <input type="number" id="dist" placeholder="Distancia"  value="19339"> metros                
+
                 </div>
             </fieldset>  
         </form>
@@ -100,8 +100,7 @@
             <div class="result">
                 <fieldset>
                     <legend>RESULTADOS</legend>
-                    <p id="x"></p>
-                    
+                
                 <p id="resul"></p>
 
                 <button type="button" onclick="setData()">Resultados</button>
