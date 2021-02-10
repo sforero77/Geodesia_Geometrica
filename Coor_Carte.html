@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="codigo7.js"></script>
+    <script type="text/javascript" src="codigo10.js"></script>
     <link rel="stylesheet" href="estilos.css">
     <link  rel="icon"   href="img/fnn.png" type="image/png" />
 
-    <title>Nivelacion No Reciproca</title>
+    <title>Coordenadas Cartesianas</title>
 </head>
 <body>
     <div class="vertical-menu">
@@ -34,7 +34,7 @@
     <div class="grande">
         
         <form>
-            <h1>NIVELACION NO RECIPROCA</h1>
+            <h1>COORDENADAS CARTESIANAS</h1>
             <fieldset >
                 <legend>Datos de elipsoide</legend>
             <div class="dat_elip" style="width:70%">
@@ -57,37 +57,34 @@
         <form action="#">
             <fieldset> 
                 <legend>DATOS INICIALES</legend>
-                <div class="geog">ζ<sub>1</sub>:
-                    <input type="number" id="z1_grados" placeholder="Grados" min="0" max="360" value="90">
-                    <input type="number" id="z1_minutos" placeholder="Minutos" min="0" max="60" value="45">
-                    <input type="number" id="z1_segundos" placeholder="Segundos" min="0" max="60" value="0">
-                    <br><br>
-                    
-                    α<sub>1-2</sub>: 
-                    <input type="number" id="azimut_grados" placeholder="Grados" min="0" max="360" value="45">
-                    <input type="number" id="azimut_minutos" placeholder="Minutos" min="0" max="60" value="0">
-                    <input type="number" id="azimut_segundos" placeholder="Segundos" min="0" max="60" value="0"><br><br>
-                    
-                    Latitud<sub>1</sub>:
-                    <input type="number" id="lat_grados" placeholder="Grados" min="0" max="360" value="4">
-                    <input type="number" id="lat_minutos" placeholder="Minutos" min="0" max="60" value="0">
-                    <input type="number" id="lat_segundos" placeholder="Segundos" min="0" max="60" value="0">
-                    <input type="text" id="lat_direccion" placeholder="Direccion" value="N"><br><br>
-                    h<sub>1</sub>:
-                    <input type="number" id="alt_punt_1" placeholder="h1" value="2900"> metros<br><br>
-                    Distancia (S):
-                    <input type="number" id="dist" placeholder=" S " value="18500"> metros<br><br>
-                    Altura Instrumental 1 (I<sub>1</sub>):
-                    <input type="number" id="i1" placeholder="I1" value="1.50"><br><br>
-                    Altura Señal 2 (O<sub>2</sub>):
-                    <input type="number" id="o2" placeholder="O2" value="4.50"><br><br>
-                    m (m):
-                    <input type="number" id="m" placeholder="m" value="0.071"><br><br>
-                    <p id="gnormal"></p>
-                    <p id="radcurv"></p>
-                    <p id="radcurvaz"></p>
-
                 
+                <div class="geog"><br> φ<sub>o</sub>:
+                    <input type="number" id="lat_grados" placeholder="Grados" min="0" max="360" value="4">
+                    <input type="number" id="lat_minutos" placeholder="Minutos" min="0" max="60" value="41">
+                    <input type="number" id="lat_segundos" placeholder="Segundos" min="0" max="60" value="0">
+                    <input type="text" id="direccion" placeholder="Direccion" value="N"><br><br>
+                    λ<sub>o</sub>: 
+                    <input type="number" id="lon_grados" placeholder="Grados" min="0" max="360" value="74">
+                    <input type="number" id="lon_minutos" placeholder="Minutos" min="0" max="60" value="9">
+                    <input type="number" id="lon_segundos" placeholder="Segundos" min="0" max="60" value="0">
+                    <input type="text" id="lon_direccion" placeholder="Direccion" value="W"><br><br>
+                    Pp(Altura plano de proyección): 
+                    <input type="number" id="pp" placeholder="Pp" value="2550" style="width: auto;"><br><br>
+                    N<sub>o</sub>: 
+                    <input type="number" id="no" placeholder="No" value="109320.965"style="width: auto;"><br><br>
+                    E<sub>o</sub>: 
+                    <input type="number" id="eo" placeholder="Eo" value="92334.879"style="width: auto;"><br><br>
+                    φ<sub>p</sub>:
+                    <input type="number" id="lat_grados2" placeholder="Grados" min="0" max="360" value="4">
+                    <input type="number" id="lat_minutos2" placeholder="Minutos" min="0" max="60" value="34">
+                    <input type="number" id="lat_segundos2" placeholder="Segundos" min="0" max="60" value="57.192">
+                    <input type="text" id="direccion2" placeholder="Direccion" value="N"><br><br>
+                    λ<sub>p</sub>: 
+                    <input type="number" id="lon_grados2" placeholder="Grados" min="0" max="360" value="74">
+                    <input type="number" id="lon_minutos2" placeholder="Minutos" min="0" max="60" value="10">
+                    <input type="number" id="lon_segundos2" placeholder="Segundos" min="0" max="60" value="59.159">
+                    <input type="text" id="lon_direccion2" placeholder="Direccion" value="W"><br><br>
+                                    
                 </div>
             </fieldset>  
         </form>
@@ -97,8 +94,7 @@
             <div class="result">
                 <fieldset>
                     <legend>RESULTADOS</legend>
-                <p id="corr"></p>
-                <p id="term"></p>
+                
                 <p id="resul"></p>
 
                 <button type="button" onclick="setData()">Resultados</button>
