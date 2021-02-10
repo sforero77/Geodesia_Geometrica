@@ -102,7 +102,7 @@ function calc_azastro(az_geod,lon_astro,lon_geod,lat_astro) {
 }
 //BOTON
 function boton(){
-    getDataElipsoide();
+    
     get_dat();
     calc_zeta(lat_a,lat_g);
     calc_eta(lat_a,lon_a,lon_g);
